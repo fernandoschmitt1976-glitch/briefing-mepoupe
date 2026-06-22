@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Briefing Executivo — Me Poupe!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,500&display=swap" rel="stylesheet">
+<style>
+  :root { color-scheme: light; --roxo:#838aff; --roxo-escuro:#2b2150; --amarelo:#ffec64; --vermelho:#e6483f; --verde:#83e9af; --tinta:#1a1430; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#f4f2fb; color:var(--tinta); padding:24px 20px; font-size:14px; line-height:1.6; }
+  a { color:inherit; }
+  .header { background:var(--roxo); color:#fff; border-radius:16px; padding:22px 26px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; box-shadow:0 6px 0 var(--roxo-escuro); }
+  .header-left h1 { font-size:22px; font-weight:800; letter-spacing:-0.5px; line-height:1.1; }
+  .header-left p { font-size:12px; color:#fff; opacity:.85; margin-top:4px; font-weight:500; }
+  .header-badge { background:var(--amarelo); color:var(--roxo-escuro); font-size:12px; font-weight:800; padding:6px 12px; border-radius:20px; text-transform:uppercase; }
+  .metodologia { background:#efeefe; border:1px dashed var(--roxo); border-radius:10px; padding:9px 14px; font-size:11px; color:var(--roxo-escuro); margin-bottom:20px; }
+  .metodologia strong { color:var(--roxo); }
+  .macro-strip { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px; }
+  .macro-pill { background:#fff; border:2px solid var(--tinta); border-radius:12px; padding:9px 15px; font-size:12px; min-width:96px; box-shadow:0 3px 0 var(--tinta); }
+  .macro-pill .label { color:#6b6485; font-size:10px; text-transform:uppercase; font-weight:700; letter-spacing:.4px; }
+  .macro-pill .value { font-weight:800; font-size:17px; color:var(--roxo-escuro); display:block; margin:1px 0; }
+  .macro-pill .delta { font-size:10px; font-weight:600; }
+  .up { color:var(--vermelho); } .down { color:#1f9d63; } .neutral { color:#888; }
+  .section-title { font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.8px; color:var(--roxo); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .section-title::before { content:""; width:18px; height:4px; background:var(--amarelo); border-radius:3px; }
+  .destaque { border:2px solid var(--tinta); border-left:8px solid var(--vermelho); border-radius:14px; padding:18px 20px; margin-bottom:16px; background:#fff; box-shadow:0 4px 0 var(--tinta); }
+  .destaque .tag-row { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:6px; }
+  .destaque .tag { font-size:10px; font-weight:800; text-transform:uppercase; color:var(--vermelho); letter-spacing:.5px; }
+  .data-stamp { font-size:10px; font-weight:800; color:#fff; background:var(--roxo); padding:3px 9px; border-radius:20px; white-space:nowrap; }
+  .destaque h2 { font-size:16px; font-weight:800; margin-bottom:8px; letter-spacing:-.3px; }
+  .destaque p { font-size:13px; color:#3a3550; }
+  .destaque .implicacao { margin-top:10px; font-size:12px; color:var(--roxo-escuro); background:#efeefe; padding:8px 12px; border-radius:8px; border-left:3px solid var(--roxo); }
+  .destaque .implicacao strong { color:var(--roxo); }
+  .fonte-link { display:inline-block; margin-top:9px; font-size:11px; font-weight:700; color:var(--roxo); text-decoration:none; border-bottom:2px solid var(--amarelo); padding-bottom:1px; }
+  .destaque.verde { border-left-color:#1f9d63; }
+  .destaque.verde .tag { color:#1f9d63; }
+  .destaque.verde .data-stamp { background:#1f9d63; }
+  .destaque.verde .implicacao { background:#e9faf1; border-left-color:#1f9d63; }
+  .destaque.verde .implicacao strong { color:#1f9d63; }
+  .destaque.verde .fonte-link { color:#1f9d63; }
+  .cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; margin-bottom:18px; }
+  .card { background:#fff; border:2px solid var(--tinta); border-radius:12px; padding:15px 16px; box-shadow:0 3px 0 var(--tinta); display:flex; flex-direction:column; }
+  .card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px; gap:6px; }
+  .tema-tag { font-size:9px; font-weight:800; text-transform:uppercase; padding:3px 9px; border-radius:20px; letter-spacing:.4px; }
+  .tag-bet { background:#fde2e0; color:#b3322a; }
+  .tag-divida { background:#e3e2ff; color:#4038a8; }
+  .tag-saude { background:#dcf7e8; color:#1f8a55; }
+  .tag-b2b { background:#efe2fe; color:#7a2bb0; }
+  .tag-macro { background:#e1eefc; color:#1f5fb0; }
+  .tag-edufin { background:#fff0d6; color:#b8730a; }
+  .tag-consumo { background:#fde0ec; color:#a81e63; }
+  .tag-reg { background:#d9f3ef; color:#0a7d6e; }
+  .card-fonte { font-size:10px; color:#a39fb5; text-align:right; font-weight:600; text-decoration:none; }
+  .card-data { font-size:10px; font-weight:800; color:var(--roxo); margin-bottom:6px; }
+  .card h3 { font-size:13px; font-weight:800; margin-bottom:6px; line-height:1.35; }
+  .card p { font-size:12px; color:#4a4560; margin-bottom:9px; }
+  .card .relevancia { font-size:11px; color:var(--roxo-escuro); background:#efeefe; padding:6px 9px; border-radius:7px; border-left:3px solid var(--roxo); }
+  .card .ler-fonte { margin-top:9px; font-size:11px; font-weight:700; color:var(--roxo); text-decoration:none; }
+  .insight-box { background:var(--roxo-escuro); color:#fff; border-radius:14px; padding:18px 22px; margin-bottom:18px; box-shadow:0 4px 0 #150f2e; }
+  .insight-box .tag { font-size:11px; font-weight:800; text-transform:uppercase; color:var(--amarelo); margin-bottom:8px; letter-spacing:.5px; }
+  .insight-box p { font-size:13px; color:#e5e3f5; line-height:1.7; }
+  .steps-box { background:#fff; border:2px solid var(--tinta); border-radius:14px; padding:18px 22px; margin-bottom:18px; box-shadow:0 4px 0 var(--tinta); }
+  .step { display:flex; gap:13px; margin-bottom:13px; align-items:flex-start; }
+  .step:last-child { margin-bottom:0; }
+  .step-num { background:var(--amarelo); color:var(--roxo-escuro); font-size:12px; font-weight:800; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+  .step-text { font-size:13px; color:#2c2745; line-height:1.5; }
+  .step-text strong { color:var(--roxo); }
+  .fontes-box { background:#fff; border:2px solid var(--tinta); border-radius:14px; padding:16px 20px; margin-bottom:18px; box-shadow:0 4px 0 var(--tinta); }
+  .fontes-box ul { list-style:none; }
+  .fontes-box li { padding:7px 0; border-bottom:1px dashed #e0dcef; font-size:12px; display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
+  .fontes-box li:last-child { border-bottom:none; }
+  .fontes-box .veiculo { font-weight:800; color:var(--roxo-escuro); min-width:130px; flex-shrink:0; }
+  .fontes-box .data-fonte { font-size:10px; font-weight:700; color:var(--roxo); }
+  .fontes-box a { color:var(--roxo); font-weight:600; text-decoration:none; word-break:break-all; }
+  .footer { font-size:10px; color:#a39fb5; text-align:center; padding-top:10px; border-top:2px dashed #d6d2e8; margin-top:4px; }
+  .footer strong { color:var(--roxo); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>☀️ Briefing Executivo — Me Poupe!</h1>
+    <p>Resumo Estratégico Diário · Fernando Schmitt</p>
+  </div>
+  <span class="header-badge">22 Jun 2026</span>
+</div>
+
+<div class="metodologia">
+  <strong>Disciplina de datação:</strong> cada notícia exibe a data de publicação verificada na fonte. Esta edição inclui apenas fatos do ciclo 17–23/06/2026. Levantamentos sem data recente confirmável foram deliberadamente excluídos.
+</div>
+
+<div class="macro-strip">
+  <div class="macro-pill"><span class="label">Selic</span><span class="value">14,25%</span><span class="delta down">3º corte · 17/06</span></div>
+  <div class="macro-pill"><span class="label">IPCA proj. 2026</span><span class="value">5,30%</span><span class="delta up">acima da meta · Focus</span></div>
+  <div class="macro-pill"><span class="label">Endividamento</span><span class="value">78,4%</span><span class="delta up">5º mês de alta · PEIC jun</span></div>
+  <div class="macro-pill"><span class="label">Inadimplência</span><span class="value">29,5%</span><span class="delta neutral">estável · PEIC jun</span></div>
+</div>
+
+<div class="section-title">🔴 Destaque do Dia</div>
+
+<div class="destaque">
+  <div class="tag-row">
+    <span class="tag">🎰 Regulação · Apostas</span>
+    <span class="data-stamp">📅 Publicado 19/06/2026</span>
+  </div>
+  <h2>Governo aperta a "asfixia financeira" contra bets ilegais (Decreto 13.033)</h2>
+  <p>Decreto assinado pelo presidente Lula na sexta-feira (19/06) reforça os instrumentos para interromper fluxos financeiros, bloquear valores obtidos de forma irregular e desarticular operadores à margem da regulamentação. Os valores declarados perdidos ao final do processo administrativo serão destinados ao Fundo Nacional de Segurança Pública. A medida intensifica identificação, fiscalização e bloqueio de contas das chamadas "bets ilegais".</p>
+  <div class="implicacao"><strong>Me Poupe!:</strong> o Estado trata oficialmente a aposta como dreno de renda familiar — janela para conteúdo e produto B2B de proteção de orçamento, em tom de educação, não de julgamento.</div>
+  <a class="fonte-link" href="https://www.gov.br/fazenda/pt-br/assuntos/noticias/2026/junho/governo-do-brasil-amplia-mecanismos-de-asfixia-financeira-contra-o-mercado-ilegal-de-apostas" target="_blank" rel="noopener">→ Ler na fonte: Ministério da Fazenda</a>
+</div>
+
+<div class="destaque verde">
+  <div class="tag-row">
+    <span class="tag">🏦 Macro · Juros</span>
+    <span class="data-stamp">📅 17/06/2026</span>
+  </div>
+  <h2>Copom corta a Selic para 14,25% — terceiro corte consecutivo</h2>
+  <p>Em decisão unânime no dia 17/06, o Copom reduziu a taxa básica para 14,25% ao ano, o terceiro corte seguido. O comunicado manteve tom cauteloso: inflação ainda acima da meta e cenário global incerto. As projeções da pesquisa Focus para o IPCA situam-se em 5,30% (2026) e 4,10% (2027).</p>
+  <div class="implicacao"><strong>Me Poupe!:</strong> o alívio gradual de juros não reverte o endividamento — reforça que o gargalo do brasileiro é comportamento financeiro, não apenas custo do crédito.</div>
+  <a class="fonte-link" href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-06/copom-reduz-taxa-selic-para-1425-ao-ano" target="_blank" rel="noopener">→ Ler na fonte: Agência Brasil</a>
+</div>
+
+<div class="section-title">📋 Notícias por Tema</div>
+<div class="cards-grid">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tema-tag tag-divida">Endividamento</span>
+      <a class="card-fonte" href="https://www.cnnbrasil.com.br/economia/macroeconomia/endividamento-sobe-a-784-das-familias-em-junho-e-inadimplencia-estabiliza-em-295-diz-cnc/" target="_blank" rel="noopener">CNN Brasil · CNC</a>
+    </div>
+    <div class="card-data">📅 PEIC de junho/2026</div>
+    <h3>Endividamento das famílias sobe a 78,4% em junho</h3>
+    <p>A PEIC/CNC aponta endividamento em 78,4% das famílias em junho — 5º mês consecutivo de alta, ainda abaixo do recorde de 80,2% (fev/2026). A inadimplência ficou estável em 29,5%; os que se declaram "muito endividados" subiram a 15,9%.</p>
+    <div class="relevancia">Base de dor mais ampla: o público endividado cresce mesmo com a Selic em queda — o problema é estrutural, não cíclico.</div>
+    <a class="ler-fonte" href="https://www.cnnbrasil.com.br/economia/macroeconomia/endividamento-sobe-a-784-das-familias-em-junho-e-inadimplencia-estabiliza-em-295-diz-cnc/" target="_blank" rel="noopener">→ Ler notícia original</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tema-tag tag-b2b">Crédito · B2B</span>
+      <a class="card-fonte" href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-04/ministerio-restringe-tarifas-e-limita-custo-do-cr%C3%A9dito-consignado" target="_blank" rel="noopener">Agência Brasil · MTE</a>
+    </div>
+    <div class="card-data">📅 Vigência a partir de 23/06/2026</div>
+    <h3>Crédito do Trabalhador passa a aceitar garantias do FGTS</h3>
+    <p>A partir de 23/06, o consignado privado CLT (Crédito do Trabalhador) viabiliza a oferta de garantias: até 20% do saldo do FGTS e a integralidade da multa de 40% nas demissões sem justa causa. O CET segue limitado a +1 p.p. sobre o juro mensal contratado.</p>
+    <div class="relevancia">Crédito mais barato e garantido no contracheque eleva o risco de superendividamento silencioso — exige camada de educação no ponto de contratação.</div>
+    <a class="ler-fonte" href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-04/ministerio-restringe-tarifas-e-limita-custo-do-cr%C3%A9dito-consignado" target="_blank" rel="noopener">→ Ler notícia original</a>
+  </div>
+
+</div>
+
+<div class="section-title">💡 Insight Estratégico do Dia</div>
+<div class="insight-box">
+  <div class="tag">⚡ A renda disponível virou campo de disputa regulada</div>
+  <p>Três movimentos da última semana incidem sobre a mesma carteira: o Estado aperta o cerco financeiro às bets (19/06), o Copom corta juros mas mantém o crédito caro (17/06) e o consignado fica mais acessível com garantia do FGTS (23/06). O efeito de 2ª ordem é uma janela rara: a educação financeira deixa de ser conteúdo aspiracional e passa a ser <strong>infraestrutura de proteção de renda</strong> — exigida tanto pelo regulador (bets) quanto pelo ponto de crédito (consignado). Quem ocupar a camada de "alfabetização de risco" no momento da aposta e no momento da contratação captura demanda antes que ela seja commoditizada por bancos e fintechs.</p>
+</div>
+
+<div class="section-title">⚡ Próximos Passos Sugeridos</div>
+<div class="steps-box">
+  <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Pauta bets + renda:</strong> acionar conteúdo conectando o Decreto 13.033 à proteção de orçamento familiar — tom de educação, nunca de julgamento.</div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Guard-rail no consignado:</strong> avaliar parceria/conteúdo no ponto de contratação do Crédito do Trabalhador (vigência 23/06), mitigando superendividamento e capturando o tráfego de crédito instantâneo.</div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Posicionamento no 2º semestre:</strong> com juro alto sustentado e endividamento em alta, manter "sair do vermelho" e renegociação como mote comercial de maior tração.</div></div>
+</div>
+
+<div class="section-title">🔗 Notícias Originais (todas as fontes)</div>
+<div class="fontes-box">
+  <ul>
+    <li><span class="veiculo">Min. da Fazenda</span><span class="data-fonte">19/06/2026</span><a href="https://www.gov.br/fazenda/pt-br/assuntos/noticias/2026/junho/governo-do-brasil-amplia-mecanismos-de-asfixia-financeira-contra-o-mercado-ilegal-de-apostas" target="_blank" rel="noopener">Governo amplia mecanismos de asfixia financeira contra bets ilegais (Decreto 13.033)</a></li>
+    <li><span class="veiculo">Agência Brasil</span><span class="data-fonte">17/06/2026</span><a href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-06/copom-reduz-taxa-selic-para-1425-ao-ano" target="_blank" rel="noopener">Copom reduz taxa Selic para 14,25% ao ano</a></li>
+    <li><span class="veiculo">CNN Brasil · CNC</span><span class="data-fonte">PEIC jun/2026</span><a href="https://www.cnnbrasil.com.br/economia/macroeconomia/endividamento-sobe-a-784-das-familias-em-junho-e-inadimplencia-estabiliza-em-295-diz-cnc/" target="_blank" rel="noopener">Endividamento das famílias sobe a 78,4% em junho</a></li>
+    <li><span class="veiculo">Agência Brasil · MTE</span><span class="data-fonte">vigência 23/06/2026</span><a href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-04/ministerio-restringe-tarifas-e-limita-custo-do-cr%C3%A9dito-consignado" target="_blank" rel="noopener">Crédito do Trabalhador: garantias e limite de custo (CET)</a></li>
+  </ul>
+</div>
+
+<div class="footer">
+  <strong>Me Poupe!</strong> · Briefing gerado em 22-06-2026 · Edição com datação verificada por item · Todas as fontes linkadas acima.
+</div>
+
+</body>
+</html>

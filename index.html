@@ -16,6 +16,8 @@
   .header-left h1 { font-size:22px; font-weight:800; letter-spacing:-0.5px; line-height:1.1; }
   .header-left p { font-size:12px; color:#fff; opacity:.85; margin-top:4px; font-weight:500; }
   .header-badge { background:var(--amarelo); color:var(--roxo-escuro); font-size:12px; font-weight:800; padding:6px 12px; border-radius:20px; text-transform:uppercase; }
+  .datacao-strip { background:#fff; border:2px dashed #c9c3e6; border-radius:10px; padding:9px 14px; margin-bottom:18px; font-size:11px; color:#5a5478; }
+  .datacao-strip strong { color:var(--roxo); }
   .macro-strip { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:22px; }
   .macro-pill { background:#fff; border:2px solid var(--tinta); border-radius:12px; padding:9px 15px; font-size:12px; min-width:96px; box-shadow:0 3px 0 var(--tinta); }
   .macro-pill .label { color:#6b6485; font-size:10px; text-transform:uppercase; font-weight:700; letter-spacing:.4px; }
@@ -24,15 +26,17 @@
   .up { color:var(--vermelho); } .down { color:#1f9d63; } .neutral { color:#888; }
   .section-title { font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:0.8px; color:var(--roxo); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
   .section-title::before { content:""; width:18px; height:4px; background:var(--amarelo); border-radius:3px; }
-  .destaque { border:2px solid var(--tinta); border-left:8px solid var(--vermelho); border-radius:14px; padding:18px 20px; margin-bottom:16px; background:#fff; box-shadow:0 4px 0 var(--tinta); }
+  .destaque { position:relative; border:2px solid var(--tinta); border-left:8px solid var(--vermelho); border-radius:14px; padding:18px 20px; margin-bottom:16px; background:#fff; box-shadow:0 4px 0 var(--tinta); }
+  .destaque .data-badge { position:absolute; top:14px; right:16px; background:#efeefe; color:var(--roxo); font-size:10px; font-weight:800; padding:3px 9px; border-radius:20px; }
   .destaque .tag { font-size:10px; font-weight:800; text-transform:uppercase; color:var(--vermelho); margin-bottom:6px; letter-spacing:.5px; }
-  .destaque h2 { font-size:16px; font-weight:800; margin-bottom:8px; letter-spacing:-.3px; }
+  .destaque h2 { font-size:16px; font-weight:800; margin-bottom:8px; letter-spacing:-.3px; padding-right:120px; }
   .destaque p { font-size:13px; color:#3a3550; }
   .destaque .implicacao { margin-top:10px; font-size:12px; color:var(--roxo-escuro); background:#efeefe; padding:8px 12px; border-radius:8px; border-left:3px solid var(--roxo); }
   .destaque .implicacao strong { color:var(--roxo); }
   .fonte-link { display:inline-block; margin-top:9px; font-size:11px; font-weight:700; color:var(--roxo); text-decoration:none; border-bottom:2px solid var(--amarelo); padding-bottom:1px; }
   .destaque.verde { border-left-color:#1f9d63; }
   .destaque.verde .tag { color:#1f9d63; }
+  .destaque.verde .data-badge { background:#e9faf1; color:#1f9d63; }
   .destaque.verde .implicacao { background:#e9faf1; border-left-color:#1f9d63; }
   .destaque.verde .implicacao strong { color:#1f9d63; }
   .destaque.verde .fonte-link { color:#1f9d63; }
@@ -49,6 +53,7 @@
   .tag-consumo { background:#fde0ec; color:#a81e63; }
   .tag-reg { background:#d9f3ef; color:#0a7d6e; }
   .card-fonte { font-size:10px; color:#a39fb5; text-align:right; font-weight:600; text-decoration:none; }
+  .card-data-badge { font-size:9px; font-weight:700; color:#8983a5; margin-bottom:6px; }
   .card h3 { font-size:13px; font-weight:800; margin-bottom:6px; line-height:1.35; }
   .card p { font-size:12px; color:#4a4560; margin-bottom:9px; }
   .card .relevancia { font-size:11px; color:var(--roxo-escuro); background:#efeefe; padding:6px 9px; border-radius:7px; border-left:3px solid var(--roxo); }
@@ -79,33 +84,36 @@
     <h1>☀️ Briefing Executivo — Me Poupe!</h1>
     <p>Resumo Estratégico Diário · Fernando Schmitt</p>
   </div>
-  <span class="header-badge">23 Jun 2026</span>
+  <span class="header-badge">24 Jun 2026</span>
 </div>
 
+<div class="datacao-strip"><strong>Disciplina de datação:</strong> cada notícia exibe a data de publicação verificada na fonte. Esta edição cobre o ciclo <strong>17–24/06/2026</strong>. Levantamentos sem data recente confirmável foram deliberadamente excluídos.</div>
+
 <div class="macro-strip">
-  <div class="macro-pill"><span class="label">Selic</span><span class="value">14,25%</span><span class="delta down">3º corte seguido</span></div>
-  <div class="macro-pill"><span class="label">IPCA 12m</span><span class="value">4,72%</span><span class="delta up">acima do teto (4,5%)</span></div>
-  <div class="macro-pill"><span class="label">IPCA proj. 2026</span><span class="value">5,33%</span><span class="delta up">Focus</span></div>
-  <div class="macro-pill"><span class="label">Dólar</span><span class="value">R$ 5,14</span><span class="delta up">aversão a risco</span></div>
-  <div class="macro-pill"><span class="label">Endividados</span><span class="value">77,8 mi</span><span class="delta up">+1,04% vs. mai</span></div>
+  <div class="macro-pill"><span class="label">Selic</span><span class="value">14,25%</span><span class="delta down">−0,25 p.p. (17/06)</span></div>
+  <div class="macro-pill"><span class="label">IPCA proj. 2026</span><span class="value">5,30%</span><span class="delta up">acima do teto · Focus 15/06</span></div>
+  <div class="macro-pill"><span class="label">Dólar</span><span class="value">R$ 5,19</span><span class="delta up">próx. máx. de 2 meses</span></div>
+  <div class="macro-pill"><span class="label">PIB proj. 2026</span><span class="value">1,96%</span><span class="delta neutral">Focus 15/06</span></div>
 </div>
 
 <div class="section-title">🔴 Destaque do Dia</div>
 
 <div class="destaque">
-  <div class="tag">🎰 Apostas &amp; Regulação</div>
-  <h2>Governo aperta o cerco às bets ilegais e blinda beneficiários do Novo Desenrola</h2>
-  <p>O Decreto nº 13.033, assinado em 19 de junho, amplia instrumentos para interromper fluxos financeiros, bloquear valores e desarticular operadores ilegais de apostas. Na véspera, a Operação Conto da Sorte bloqueou 50 mil sites e interrompeu as atividades de 350 operadores. A Instrução Normativa SPA/MF nº 3/2026 cria regras para impedir que beneficiários do Programa Novo Desenrola Brasil usem plataformas de aposta de quota fixa. A norma parte da premissa de elevado potencial de comprometimento da renda disponível, sobretudo em famílias já endividadas.</p>
-  <div class="implicacao"><strong>Me Poupe!:</strong> O Estado age sobre a oferta (bets ilegais), mas a vulnerabilidade comportamental do apostador endividado permanece. Diagnóstico: janela de autoridade temática — produzir conteúdo de proteção financeira ancorado no momento regulatório, posicionando a marca como referência de educação preventiva sobre risco de apostas.</div>
+  <span class="data-badge">📅 Publicado 19/06/2026</span>
+  <div class="tag">⚖️ Regulação · Apostas (bets)</div>
+  <h2>Governo amplia asfixia financeira a bets ilegais com o Decreto 13.033</h2>
+  <p>Em 19/06, foi assinado o Decreto nº 13.033/2026, que regulamenta o art. 21-A da Lei 14.790/2023: permite bloqueio de recursos, perdimento de bens de operadores não autorizados e destinação dos valores ao Fundo Nacional de Segurança Pública. No dia anterior (18/06), a Operação Conto da Sorte bloqueou 50 mil sites e interrompeu 350 operadores, com R$ 145 milhões em apreensões e 14 mandados em PE, CE e SP. O governo estima 25+ milhões de brasileiros em plataformas ilegais.</p>
+  <div class="implicacao"><strong>Me Poupe!:</strong> o cerco regulatório fortalece a fronteira "regulado vs. ilegal", mas não reduz o estresse financeiro no curto prazo — janela de atenção pública para conteúdo de proteção financeira e ativação do produto B2B.</div>
   <a class="fonte-link" href="https://www.gov.br/casacivil/pt-br/assuntos/noticias/2026/junho/governo-federal-regulamenta-bloqueio-de-recursos-de-bets-ilegais-e-reforca-combate-a-operacoes-irregulares" target="_blank" rel="noopener">→ Ler na fonte: Casa Civil / gov.br</a>
 </div>
 
 <div class="destaque verde">
-  <div class="tag">🏢 Bem-Estar Corporativo (B2B)</div>
-  <h2>Bem-estar financeiro vira pilar estratégico: 89% das empresas o ligam à performance</h2>
-  <p>O Panorama do Bem-Estar Corporativo 2026 (Wellhub) aponta que 89% das organizações associam bem-estar à performance, e o bem-estar financeiro figura entre as soluções mais demandadas (23%). Em paralelo, 63% dos trabalhadores brasileiros relatam dificuldade para pagar despesas básicas, e a agenda de wellbeing migra de diferencial competitivo para pilar de sustentabilidade organizacional, alinhada à NR-01 (riscos psicossociais).</p>
-  <div class="implicacao"><strong>Me Poupe!:</strong> A NR-01 converte estresse financeiro em risco regulatório do empregador. Implicação: reposicionar a oferta B2B de educação financeira como mitigação obrigatória de risco psicossocial — não como benefício acessório —, ampliando ticket e urgência de compra no RH.</div>
-  <a class="fonte-link" href="https://wellhub.com/pt-br/blog/press-releases/panorama-do-bem-estar-corporativo-2026/" target="_blank" rel="noopener">→ Ler na fonte: Wellhub</a>
+  <span class="data-badge">📅 17/06/2026</span>
+  <div class="tag">📉 Macro · Política Monetária</div>
+  <h2>Copom corta a Selic para 14,25% — 3ª queda consecutiva, mas inflação acima do teto</h2>
+  <p>Em 17/06, o Copom reduziu a Selic de 14,50% para 14,25% ao ano, em decisão unânime — terceira queda seguida em 2026. O comitê manteve tom de cautela: expectativas desancoradas e projeções de inflação elevadas, com IPCA projetado em 5,30% para 2026 e 4,10% para 2027, superando o limite superior da banda.</p>
+  <div class="implicacao"><strong>Me Poupe!:</strong> juro ainda restritivo e crédito caro; o endividamento estrutural das famílias permanece — terreno fértil para educação financeira e crédito responsável.</div>
+  <a class="fonte-link" href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-06/copom-reduz-taxa-selic-para-1425-ao-ano" target="_blank" rel="noopener">→ Ler na fonte: Agência Brasil</a>
 </div>
 
 <div class="section-title">📋 Notícias por Tema</div>
@@ -114,106 +122,81 @@
   <div class="card">
     <div class="card-header">
       <span class="tema-tag tag-divida">Endividamento</span>
-      <a class="card-fonte" href="https://www.cnnbrasil.com.br/economia/macroeconomia/inadimplencia-atinge-817-milhoes-e-cresce-38-em-10-anos-no-brasil/" target="_blank" rel="noopener">Serasa / CNN</a>
+      <a class="card-fonte" href="https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/" target="_blank" rel="noopener">Serasa</a>
     </div>
-    <h3>Brasil chega a 81,7 milhões de negativados; 77,8 mi de endividados em junho</h3>
-    <p>O país soma 81,7 milhões de CPFs negativados (quase metade da população adulta) e R$ 539 bilhões em dívidas. Em junho, 77,8 milhões estavam endividados (+1,04% vs. maio). Pela PEIC, a renda comprometida com dívidas é de 29,7%, e 19,5% das famílias têm mais da metade dos rendimentos comprometidos.</p>
-    <div class="relevancia">Demanda estrutural por educação financeira segue em máxima histórica — base de mercado para produtos B2C e B2B.</div>
-    <a class="ler-fonte" href="https://www.cnnbrasil.com.br/economia/macroeconomia/inadimplencia-atinge-817-milhoes-e-cresce-38-em-10-anos-no-brasil/" target="_blank" rel="noopener">→ Ler notícia original</a>
+    <div class="card-data-badge">📅 Dados de Junho/2026</div>
+    <h3>77,8 milhões de endividados em junho; renegociação média de R$ 772</h3>
+    <p>O Mapa da Inadimplência registrou 77,8 milhões de endividados em junho (+1,04% vs. maio). O acordo médio no Limpa Nome foi de R$ 772, com R$ 953 bilhões em ofertas disponíveis. O endividamento consolidou-se como problema estrutural, persistindo mesmo em ciclos de queda de juros.</p>
+    <div class="relevancia">Base massiva e crescente de famílias precisando de organização e renegociação — núcleo da proposta de valor da educação financeira.</div>
+    <a class="ler-fonte" href="https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/" target="_blank" rel="noopener">→ Ler notícia original</a>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <span class="tema-tag tag-edufin">Educação Financeira</span>
-      <a class="card-fonte" href="https://www.gov.br/fazenda/pt-br/assuntos/noticias/2026/junho/tesouro-direto-reforca-estrategia-de-educacao-financeira-com-marta-como-embaixadora" target="_blank" rel="noopener">Min. Fazenda</a>
+      <span class="tema-tag tag-bet">Apostas (bets)</span>
+      <a class="card-fonte" href="https://consumidormoderno.com.br/governo-amplia-combate-bets-ilegais/" target="_blank" rel="noopener">Consumidor Moderno</a>
     </div>
-    <h3>Tesouro Direto adota Marta como embaixadora; BC amplia Aprender Valor ao ensino médio</h3>
-    <p>A STN e a B3 anunciaram Marta Silva como embaixadora do Tesouro Direto na aproximação com pessoa física. Em paralelo, o Banco Central amplia o programa Aprender Valor a estudantes do ensino médio de escolas públicas e privadas de todo o país a partir de 2026.</p>
-    <div class="relevancia">Educação financeira institucionalizada amplia o mercado e legitima a categoria — favorece quem já é marca de referência.</div>
-    <a class="ler-fonte" href="https://www.gov.br/fazenda/pt-br/assuntos/noticias/2026/junho/tesouro-direto-reforca-estrategia-de-educacao-financeira-com-marta-como-embaixadora" target="_blank" rel="noopener">→ Ler notícia original</a>
+    <div class="card-data-badge">📅 Publicado 18/06/2026</div>
+    <h3>25+ milhões de brasileiros em plataformas ilegais; 81% veem impacto negativo</h3>
+    <p>Segundo o governo, mais de 25 milhões de brasileiros apostam em plataformas ilegais. A ampla maioria da população (81%) avalia o impacto das bets nas finanças das famílias como negativo (31%) ou muito negativo (50%).</p>
+    <div class="relevancia">A demanda por apostas não cede com o cerco regulatório — risco de migração para crédito caro, ampliando a necessidade de educação e proteção financeira.</div>
+    <a class="ler-fonte" href="https://consumidormoderno.com.br/governo-amplia-combate-bets-ilegais/" target="_blank" rel="noopener">→ Ler notícia original</a>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <span class="tema-tag tag-saude">Estresse &amp; Saúde Mental</span>
-      <a class="card-fonte" href="https://brasil.un.org/pt-br/292926-brasil-afastamentos-por-problemas-de-sa%C3%BAde-mental-aumentam-134" target="_blank" rel="noopener">ONU Brasil / Flash</a>
+      <span class="tema-tag tag-b2b">Saúde Mental · B2B</span>
+      <a class="card-fonte" href="https://www.fecap.br/2026/05/06/empresas-devem-se-adaptar-a-nova-nr-1-que-entra-em-vigor-em-26-05-tendo-como-foco-a-saude-mental-dos-funcionarios/" target="_blank" rel="noopener">FECAP / MTE</a>
     </div>
-    <h3>73% dizem que saúde mental afeta o desempenho; presenteísmo médio chega a 32%</h3>
-    <p>73% dos trabalhadores afirmam que a saúde mental impacta diretamente o desempenho. O presenteísmo médio nas empresas brasileiras chega a 32%. Os afastamentos por transtornos mentais subiram 134%, com quase meio milhão de casos — o maior número em uma década. Renda insuficiente e endividamento estão entre os gatilhos.</p>
-    <div class="relevancia">Estresse financeiro é vetor direto de presenteísmo — argumento de ROI para vender educação financeira ao RH.</div>
-    <a class="ler-fonte" href="https://brasil.un.org/pt-br/292926-brasil-afastamentos-por-problemas-de-sa%C3%BAde-mental-aumentam-134" target="_blank" rel="noopener">→ Ler notícia original</a>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <span class="tema-tag tag-b2b">Soluções Salário &amp; Dívida</span>
-      <a class="card-fonte" href="https://www.camara.leg.br/noticias/1172980-saiba-mais-sobre-a-mp-que-reformula-credito-consignado-para-trabalhador-do-setor-privado/" target="_blank" rel="noopener">Câmara / Ag. Brasil</a>
-    </div>
-    <h3>Consignado privado CLT em expansão, com margem de 35% e taxa média de ~3,8% a.m.</h3>
-    <p>O Crédito do Trabalhador (consignado privado), descontado em folha via eSocial até a margem de 35% do salário bruto, atende CLT, domésticos e rurais. A taxa média de mercado gira em torno de 3,8% a 3,9% ao mês — entre as linhas mais vantajosas para o trabalhador privado.</p>
-    <div class="relevancia">Crédito em folha sem educação de uso amplia risco de superendividamento — espaço para camada educacional acoplada ao produto.</div>
-    <a class="ler-fonte" href="https://www.camara.leg.br/noticias/1172980-saiba-mais-sobre-a-mp-que-reformula-credito-consignado-para-trabalhador-do-setor-privado/" target="_blank" rel="noopener">→ Ler notícia original</a>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <span class="tema-tag tag-reg">Regulação Crédito</span>
-      <a class="card-fonte" href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-04/ministerio-restringe-tarifas-e-limita-custo-do-credito-consignado" target="_blank" rel="noopener">Agência Brasil</a>
-    </div>
-    <h3>MTE limita custo do consignado: CET não pode exceder a taxa em mais de 1 ponto</h3>
-    <p>O Comitê Gestor das Operações de Crédito Consignado criou metodologia para monitorar juros e encargos. O Custo Efetivo Total não poderá ultrapassar em mais de 1 ponto percentual a taxa mensal contratada — ex.: a 1,5% a.m., o CET máximo é 2,5% a.m. A medida já está em vigor.</p>
-    <div class="relevancia">Teto de custo barateia crédito em folha e acelera adoção — reforça a urgência de educação sobre endividamento responsável.</div>
-    <a class="ler-fonte" href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-04/ministerio-restringe-tarifas-e-limita-custo-do-credito-consignado" target="_blank" rel="noopener">→ Ler notícia original</a>
+    <div class="card-data-badge">📅 Vigência 26/05/2026 · fiscalização em junho</div>
+    <h3>NR-1 torna risco psicossocial obrigação legal do empregador</h3>
+    <p>Desde 26/05, a nova NR-1 obriga as empresas a incluir riscos psicossociais — estresse, burnout, carga mental — no Programa de Gerenciamento de Riscos (PGR). O primeiro ano é educativo, mas a fiscalização já está ativa, com multas, embargos e interdições previstos para o descumprimento.</p>
+    <div class="relevancia">O estresse financeiro vira passivo corporativo regulado: gancho direto para posicionar educação financeira corporativa como mitigação de risco no PGR.</div>
+    <a class="ler-fonte" href="https://www.fecap.br/2026/05/06/empresas-devem-se-adaptar-a-nova-nr-1-que-entra-em-vigor-em-26-05-tendo-como-foco-a-saude-mental-dos-funcionarios/" target="_blank" rel="noopener">→ Ler notícia original</a>
   </div>
 
   <div class="card">
     <div class="card-header">
       <span class="tema-tag tag-macro">Macro Brasil</span>
-      <a class="card-fonte" href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-06/bolsa-cai-222-e-dolar-volta-subir-acima-de-r-506" target="_blank" rel="noopener">Agência Brasil</a>
+      <a class="card-fonte" href="https://www.infomoney.com.br/economia/boletim-focus-projecoes-15062026/" target="_blank" rel="noopener">InfoMoney / BC</a>
     </div>
-    <h3>Copom corta Selic a 14,25%, mas inflação a 4,72% e dólar pressionado por risco global</h3>
-    <p>O Copom reduziu a Selic em 0,25 p.p., a 14,25% — terceiro corte seguido. O IPCA em 12 meses está em 4,72%, acima do teto da meta (4,5%), e o Focus projeta 5,33% para 2026. O dólar voltou a subir (~R$ 5,14) com aversão a risco global após tensões no Oriente Médio. Próximo Copom: 4–5 de agosto.</p>
-    <div class="relevancia">Juro alto + inflação acima do teto pressiona orçamento familiar — mantém aquecida a demanda por gestão financeira.</div>
-    <a class="ler-fonte" href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-06/bolsa-cai-222-e-dolar-volta-subir-acima-de-r-506" target="_blank" rel="noopener">→ Ler notícia original</a>
+    <div class="card-data-badge">📅 Publicado 15/06/2026</div>
+    <h3>Focus: inflação de 2026 sobe pela 14ª semana seguida, a 5,30%</h3>
+    <p>O Boletim Focus elevou a projeção de IPCA 2026 de 5,11% para 5,30% — 14ª alta consecutiva. O PIB foi ajustado para 1,96%, a Selic de fim de ano para 13,75% e o câmbio para R$ 5,20/US$. O quadro indica pressão inflacionária persistente.</p>
+    <div class="relevancia">Inflação resiliente sustenta crédito caro e aperto no orçamento das famílias — vento de cauda para a pauta de educação financeira e disciplina de consumo.</div>
+    <a class="ler-fonte" href="https://www.infomoney.com.br/economia/boletim-focus-projecoes-15062026/" target="_blank" rel="noopener">→ Ler notícia original</a>
   </div>
 
 </div>
 
 <div class="section-title">💡 Insight Estratégico do Dia</div>
 <div class="insight-box">
-  <div class="tag">⚡ A regulação corta a oferta, mas não constrói capacidade financeira</div>
-  <p>Três frentes do Estado convergem nesta semana: aperto sobre bets ilegais (Decreto 13.033), teto de custo do consignado e blindagem do Novo Desenrola. Todas atacam o lado da <em>oferta</em> de dano financeiro — produtos predatórios e crédito caro. Nenhuma resolve o lado da <em>demanda</em>: 81,7 milhões de negativados e analfabetismo financeiro estrutural. Efeito de 2ª ordem: ao baratear o consignado e remover bets ilegais, o Estado libera renda e crédito sem ampliar a competência de uso — risco de migração do endividamento, não de extinção. Efeito de 3ª ordem: a NR-01 transfere ao empregador a responsabilidade pelo estresse financeiro do colaborador. A lacuna entre regulação da oferta e capacitação da demanda é exatamente o território da Me Poupe! — e o vetor B2B (educação como mitigação de risco psicossocial) é o que captura essa lacuna com maior urgência de compra.</p>
+  <div class="tag">⚡ Do problema pessoal ao passivo corporativo regulado</div>
+  <p>O estresse financeiro está migrando de problema individual para passivo das empresas. A convergência — Selic ainda alta, inflação acima do teto, 77,8 mi de endividados e bilhões drenados por bets — encontra a NR-1, que torna a gestão do risco psicossocial obrigação legal do empregador. Efeito de 2ª ordem: o cerco às bets pode empurrar apostadores compulsivos para o crédito, elevando a demanda por renegociação e educação. Efeito de 3ª ordem: RHs passam a ter exposição jurídica ao estresse financeiro dos colaboradores — convertendo a educação financeira corporativa de "benefício" em instrumento de mitigação de risco.</p>
 </div>
 
 <div class="section-title">⚡ Próximos Passos Sugeridos</div>
 <div class="steps-box">
-  <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Reposicionar oferta B2B:</strong> empacotar educação financeira como mitigação de risco psicossocial (NR-01), com narrativa de ROI ancorada em presenteísmo (32%) e afastamentos mentais (+134%) para o público de RH.</div></div>
-  <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Capturar a janela das bets:</strong> produzir conteúdo de proteção financeira sobre apostas e Novo Desenrola, aproveitando o momento regulatório para reforçar autoridade preventiva da marca.</div></div>
-  <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Avaliar camada sobre consignado:</strong> explorar produto/parceria de educação acoplada ao Crédito do Trabalhador, transformando o crédito em folha em uso responsável em vez de novo gatilho de superendividamento.</div></div>
+  <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Cunha B2B / NR-1:</strong> posicionar o programa corporativo como instrumento de mitigação de risco psicossocial no PGR — gancho regulatório imediato junto a diretores de RH.</div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Conteúdo de proteção:</strong> produzir pauta "bets reguladas vs. ilegais e a armadilha do crédito pós-aposta", capturando a janela de atenção aberta pelo decreto.</div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Crédito responsável:</strong> avaliar trilha educativa sobre consignado CLT (CET tabelado) como alternativa ao crédito caro para o público endividado.</div></div>
 </div>
 
 <div class="section-title">🔗 Notícias Originais (todas as fontes)</div>
 <div class="fontes-box">
   <ul>
-    <li><span class="veiculo">Casa Civil / gov.br</span><a href="https://www.gov.br/casacivil/pt-br/assuntos/noticias/2026/junho/governo-federal-regulamenta-bloqueio-de-recursos-de-bets-ilegais-e-reforca-combate-a-operacoes-irregulares" target="_blank" rel="noopener">Governo regulamenta bloqueio de recursos de bets ilegais</a></li>
-    <li><span class="veiculo">Min. da Fazenda</span><a href="https://www.gov.br/fazenda/pt-br/assuntos/noticias/2026/junho/governo-do-brasil-amplia-mecanismos-de-asfixia-financeira-contra-o-mercado-ilegal-de-apostas" target="_blank" rel="noopener">Brasil amplia mecanismos de asfixia financeira contra bets ilegais</a></li>
-    <li><span class="veiculo">Sincovaga Notícias</span><a href="https://www.sincovaganoticias.com.br/programa-novo-desenrola-brasil-e-apostas-online-mix-legal-114-2026/" target="_blank" rel="noopener">Programa Novo Desenrola Brasil e apostas online (IN SPA/MF nº 3/2026)</a></li>
-    <li><span class="veiculo">Wellhub</span><a href="https://wellhub.com/pt-br/blog/press-releases/panorama-do-bem-estar-corporativo-2026/" target="_blank" rel="noopener">Panorama do Bem-Estar Corporativo 2026: 89% ligam bem-estar à performance</a></li>
-    <li><span class="veiculo">Serasa / CNN Brasil</span><a href="https://www.cnnbrasil.com.br/economia/macroeconomia/inadimplencia-atinge-817-milhoes-e-cresce-38-em-10-anos-no-brasil/" target="_blank" rel="noopener">Inadimplência atinge 81,7 milhões e cresce 38% em 10 anos</a></li>
-    <li><span class="veiculo">Serasa</span><a href="https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/" target="_blank" rel="noopener">Mapa da inadimplência e renegociação de dívidas (junho/2026)</a></li>
-    <li><span class="veiculo">Min. da Fazenda</span><a href="https://www.gov.br/fazenda/pt-br/assuntos/noticias/2026/junho/tesouro-direto-reforca-estrategia-de-educacao-financeira-com-marta-como-embaixadora" target="_blank" rel="noopener">Tesouro Direto reforça educação financeira com Marta como embaixadora</a></li>
-    <li><span class="veiculo">Agência Gov / BC</span><a href="https://agenciagov.ebc.com.br/noticias/202508/aprender-valor-bc-anuncia-parceria-para-levar-educacao-financeira-a-estudantes-do-ensino-medio-de-todo-o-pais-a-partir-de-2026" target="_blank" rel="noopener">BC amplia Aprender Valor ao ensino médio a partir de 2026</a></li>
-    <li><span class="veiculo">ONU Brasil</span><a href="https://brasil.un.org/pt-br/292926-brasil-afastamentos-por-problemas-de-sa%C3%BAde-mental-aumentam-134" target="_blank" rel="noopener">Afastamentos por problemas de saúde mental aumentam 134%</a></li>
-    <li><span class="veiculo">Flash</span><a href="https://flashapp.com.br/blog/saude-mental-no-trabalho" target="_blank" rel="noopener">Saúde mental no trabalho em 2026: dados e tendências do RH</a></li>
-    <li><span class="veiculo">Câmara dos Deputados</span><a href="https://www.camara.leg.br/noticias/1172980-saiba-mais-sobre-a-mp-que-reformula-credito-consignado-para-trabalhador-do-setor-privado/" target="_blank" rel="noopener">MP que reformula o crédito consignado para o setor privado</a></li>
-    <li><span class="veiculo">Agência Brasil</span><a href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-04/ministerio-restringe-tarifas-e-limita-custo-do-credito-consignado" target="_blank" rel="noopener">Ministério restringe tarifas e limita custo do crédito consignado</a></li>
-    <li><span class="veiculo">Agência Brasil</span><a href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-06/bolsa-cai-222-e-dolar-volta-subir-acima-de-r-506" target="_blank" rel="noopener">Bolsa cai 2,22% e dólar volta a subir acima de R$ 5,06</a></li>
-    <li><span class="veiculo">InfoMoney</span><a href="https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-22062026/" target="_blank" rel="noopener">Ibovespa fecha com ampla alta, com bancos e Petrobras (22/06/2026)</a></li>
+    <li><span class="veiculo">Casa Civil / gov.br</span><a href="https://www.gov.br/casacivil/pt-br/assuntos/noticias/2026/junho/governo-federal-regulamenta-bloqueio-de-recursos-de-bets-ilegais-e-reforca-combate-a-operacoes-irregulares" target="_blank" rel="noopener">Decreto 13.033 regulamenta bloqueio de recursos de bets ilegais (19/06)</a></li>
+    <li><span class="veiculo">Receita Federal</span><a href="https://www.gov.br/receitafederal/pt-br/assuntos/noticias/2026/junho/receita-federal-participa-da-operacao-conto-da-sorte-contra-esquema-de-apostas-ilegais" target="_blank" rel="noopener">Operação Conto da Sorte contra apostas ilegais (18/06)</a></li>
+    <li><span class="veiculo">Consumidor Moderno</span><a href="https://consumidormoderno.com.br/governo-amplia-combate-bets-ilegais/" target="_blank" rel="noopener">25+ milhões apostam em plataformas ilegais (18/06)</a></li>
+    <li><span class="veiculo">Agência Brasil</span><a href="https://agenciabrasil.ebc.com.br/economia/noticia/2026-06/copom-reduz-taxa-selic-para-1425-ao-ano" target="_blank" rel="noopener">Copom reduz a Selic para 14,25% ao ano (17/06)</a></li>
+    <li><span class="veiculo">Serasa</span><a href="https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/" target="_blank" rel="noopener">Mapa da Inadimplência — 77,8 mi de endividados (Junho/2026)</a></li>
+    <li><span class="veiculo">FECAP / MTE</span><a href="https://www.fecap.br/2026/05/06/empresas-devem-se-adaptar-a-nova-nr-1-que-entra-em-vigor-em-26-05-tendo-como-foco-a-saude-mental-dos-funcionarios/" target="_blank" rel="noopener">Nova NR-1 com foco em saúde mental (vigência 26/05)</a></li>
+    <li><span class="veiculo">InfoMoney / BC</span><a href="https://www.infomoney.com.br/economia/boletim-focus-projecoes-15062026/" target="_blank" rel="noopener">Boletim Focus: inflação 2026 a 5,30%, Selic 13,75% (15/06)</a></li>
   </ul>
 </div>
 
 <div class="footer">
-  <strong>Me Poupe!</strong> · Briefing gerado em 23-06-2026 · Todas as notícias originais estão linkadas em cada card e na seção "Notícias Originais" acima.
+  <strong>Me Poupe!</strong> · Briefing gerado em 24-06-2026 · Todas as notícias originais estão linkadas em cada card e na seção "Notícias Originais" acima.
 </div>
 
 </body>
